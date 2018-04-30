@@ -1,0 +1,45 @@
+<script>
+
+    var context = {"persona": "None", "buyerProfile": "None"};
+    var root = Coveo.$$(document).find("#search");
+    Coveo.$$(root).on("buildingQuery", function(e, args) { args.queryBuilder.addContext(context); });
+
+    //This function is called each time the visitorPersona <select> is used
+    function processVisitorPersona(){
+        //Selecting the dropdowlist for persona
+        var selectedPersona = document.getElementById("visitorPersona").value
+        
+        //Setting the context
+        context['persona'] = selectedPersona;
+        
+        //Custom Search Event parameters. name -> actionCause
+        var personaCustomSearchEventCause = { name : 'settingPersona', type : '' };
+        
+        //Custom Event parameters
+        var personaCustomEventCause = { name : 'settingPersona', type : 'selectingContext' };
+        
+        Coveo.logCustomEvent(root, personaCustomEventCause, context);
+        Coveo.logSearchEvent(root, personaCustomSearchEventCause);
+        Coveo.executeQuery(root);
+    }
+
+    //This function is called each time the buyerProfile <select> is used
+    function processBuyerProfile(){
+        //Selecting the dropdowlist for persona
+        var selectedBuyer= document.getElementById("visitorBuyerProfile").value
+        
+        //Setting the context
+        context['buyerProfile'] = selectedBuyer;
+        
+        //Custom Search Event parameters. name -> actionCause
+        var buyerCustomSearchEventCause = { name : 'settingBuyerProfile', type : '' };
+        
+        //Custom Event parameters
+        var buyerCustomEventCause = { name : 'settingBuyerProfile', type : 'selectingContext' };
+        
+        Coveo.logCustomEvent(root, buyerCustomEventCause, context);
+        Coveo.logSearchEvent(root, buyerCustomSearchEventCause);
+        Coveo.executeQuery(root);
+    }
+
+</script>
