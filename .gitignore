@@ -5,5 +5,5 @@ app store/node_modules
 app store/app_meta.json
 app store/app_metaAndContent.json
 app store/push_api.json
-coveo/node_modules
+coveo/search-ui/node_modules
 scenario builder/node_modules
