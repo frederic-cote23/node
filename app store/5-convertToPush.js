@@ -1,6 +1,6 @@
 const fs = require('fs');
 //app_metaAndContent.json       app_metaAndContent_withTopApps.json
-var file_to_process = fs.readFileSync("app_metaAndContent.json");
+var file_to_process = fs.readFileSync("app_metaAndContent_withTopApps.json");
 
 var jsonContent = JSON.parse(file_to_process);
 
